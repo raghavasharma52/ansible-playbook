@@ -1,0 +1,10 @@
+---
+- hosts: webhosts
+
+  tasks:
+  - name: copy a sample file
+    copy: 
+      src: sample 
+      dest: /tmp/
+      owner: root
+      group: root
