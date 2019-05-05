@@ -11,3 +11,12 @@
       package:
         name: "*"
         state: latest
+    - name: Install additonal packages
+          yum: pkg={{item}} state=present
+          with_items:
+            - vsftpd
+            - xinetd
+            - ypserv
+            - telnet-server
+            - nrpe
+            - nagios-server
