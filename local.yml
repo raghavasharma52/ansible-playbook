@@ -1,0 +1,13 @@
+---
+- hosts: local
+  become: true
+
+  tasks:
+    - name: systmem info
+      debug:
+        msg: "OS family: {{ ansible_os_family }}, package manager: {{ ansible_pkg_mgr }}"
+
+    - name: install updates
+      package:
+        name: "*"
+        state: latest
