@@ -16,7 +16,5 @@
        state: present
        name:
         - telnet
-        - htop
-        - nagios-server
         - nrpe
         - bind
