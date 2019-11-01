@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<project name="junit" default="package">
+
+  <target name="init">
+    <mkdir dir="build/classes" />                      
+    <mkdir dir="dist" />                                       
+  </target>
+
+  <target name="compile" depends="init" description="Compile Java code">
+    <javac srcdir="." destdir="build/classes" includeantruntime="false"/>
+  </target>
+
+  <target name="package" depends="compile" description="Generate JAR file">                                                
+    <jar destfile="dist/junit.jar" basedir="build/classes"/>
+  </target>
+
+  <target name="clean" description="Deletes generated directories">
+    <delete dir="build" />
+    <delete dir="dist" />
+  </target>
+<mkdir dir="testresults" />
+
+<target name="main" depends="runtests" description="Main target for running the tests." />
+
+<target name="runtests" description="Make output directories and run the MXUnit task">
+<taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask"  classpath="../../ant/lib/mxunit-ant.jar" />
+</target>
+</project>
